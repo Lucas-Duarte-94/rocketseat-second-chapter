@@ -2,7 +2,12 @@
 
 It's an app to manage incomes/outcomes.
 
------------ img space --------------
+Main page:
+![1](https://user-images.githubusercontent.com/57713413/126832389-a5dc330e-7b8f-4cc5-b714-83e2afb443bb.png)
+
+Modal:
+![modal](https://user-images.githubusercontent.com/57713413/126832460-9617c597-fb6f-4f88-aad9-a47a53d9bbbb.png)
+
 
 Every style in this app is made with styled components and polished.
 
