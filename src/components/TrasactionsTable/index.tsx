@@ -1,24 +1,16 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import { api } from "../../services/api";
+import { useTransactions } from "../../hooks/useTransactions";
 import { Container } from "./style";
 
-interface TransactionsProps {
-    id: number;
-    title: string;
-    type: string;
-    category: string;
-    amount: number;
-    createAt: string;
-}
+import DeleteImg from '../../assets/garbage-interface-svgrepo-com.svg';
+import { api } from "../../services/api";
 
 export function TrasactionsTable() {
-    const [transactions, setTransactions] = useState<TransactionsProps[]>([]);
-
-    useEffect(() => {
-        api('/transactions')
-        .then(response => setTransactions(response.data.transactions));
-    }, []);
+    const { transactions } = useTransactions();
+    
+    async function handleDeleteTransaction() {
+        // not working yet.
+        await api.delete('/transaction/:id')
+    }
 
     return (
         <Container>
@@ -43,6 +35,11 @@ export function TrasactionsTable() {
                                 }).format(transaction.amount)}</td>
                                 <td>{transaction.category}</td>
                                 <td>{new Intl.DateTimeFormat().format(new Date(transaction.createAt))}</td>
+                                <td>
+                                    <button onClick={handleDeleteTransaction}>
+                                        <img src={DeleteImg} alt="Deletar" />
+                                    </button>
+                                </td>
                             </tr>
                         )
                     })}

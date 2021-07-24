@@ -5,7 +5,7 @@ import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import closeImg from '../../assets/close.svg';
 import { FormEvent, useState } from 'react';
-import { api } from '../../services/api';
+import { useTransactions } from '../../hooks/useTransactions';
 
 interface NewTransactionModalProps {
     isOpen: boolean;
@@ -14,22 +14,21 @@ interface NewTransactionModalProps {
 
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
     const [title, setTitle] = useState('');
-    const [value, setValue] = useState(0);
+    const [amount, setAmount] = useState(0);
     const [type, setType] = useState('deposit');
     const [category, setCategory] = useState('')
     
+    const { createTransaction } = useTransactions();
 
-    function handleCreateNewTransaction(event: FormEvent) {
-        event.preventDefault()
-        
-        const data = {
-            title,
-            value,
-            type,
-            category
-        }
+    async function handleCreateNewTransaction(event: FormEvent) {
+        event.preventDefault()      
 
-        api.post('/transactions', data);
+        await createTransaction({title, type, category, amount})
+
+        setTitle('');
+        setAmount(0);
+        setType('deposit');
+        setCategory('');
 
         onRequestClose();
     }
@@ -49,7 +48,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
             <Container onSubmit={event => handleCreateNewTransaction(event)}>
                 <h2>Cadastrar transação</h2>
                 <input type="text" placeholder="Título" value={title} onChange={event => setTitle(event.target.value)} />
-                <input type="number" placeholder="Valor" value={value} onChange={event => setValue(Number(event.target.value))} />
+                <input type="number" placeholder="Valor" value={amount} onChange={event => setAmount(Number(event.target.value))} />
 
                 <TransactionTypeContainer>
                     <RadioBox 

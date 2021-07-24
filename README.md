@@ -19,7 +19,9 @@ Actually this app request data from a fake API, but some information still stati
 Need to work on:
 
 - [x] Modal to add new values.
-- [ ] Send those values to our fake API.(MirageJs)
-- [ ] Configure useContext.
-- [ ] turn summary into dinamic information.
+- [x] Send those values to our fake API.(MirageJs)
+- [x] Configure useContext.
+- [x] turn summary into dinamic information.
 - [ ] List and delete any income/outcome.
+-- [x] Listing new transactions.
+-- [ ] Deleting transactions.
