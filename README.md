@@ -3,7 +3,8 @@
 It's an app to manage incomes/outcomes.
 
 Main page:
-![1](https://user-images.githubusercontent.com/57713413/126832389-a5dc330e-7b8f-4cc5-b714-83e2afb443bb.png)
+![1](https://user-images.githubusercontent.com/57713413/126875174-1312eeff-edbe-4a05-b992-b04c03ca03e0.png)
+
 
 Modal: 
 
