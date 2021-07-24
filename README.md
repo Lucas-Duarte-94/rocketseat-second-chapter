@@ -22,6 +22,5 @@ Need to work on:
 - [x] Send those values to our fake API.(MirageJs)
 - [x] Configure useContext.
 - [x] turn summary into dinamic information.
-- [ ] List and delete any income/outcome.
--- [x] Listing new transactions.
--- [ ] Deleting transactions.
+- [x] Listing new transactions.
+- [ ] Deleting transactions.
